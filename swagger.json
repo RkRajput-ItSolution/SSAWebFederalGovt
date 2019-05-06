@@ -1,0 +1,71 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "SSAWeb Rest API For USA Federal Gov.",
+		"version": "1.0",
+		"title": "SSAWeb REST API",
+		"termsOfService": "Terms of service",
+		"contact": {
+			"name": "FederalGov/John Thompson",
+			"url": "https://www.use.federal.gov/",
+			"email": "http://www.JohnThompson@gmail.com/"
+		},
+		"license": {
+			"name": "Apache License Version 2.0",
+			"url": "https://www.apache.org/licenses/LICENSE-2.0"
+		}
+	},
+	"host": "localhost:9090",
+	"basePath": "/",
+	"tags": [
+		{
+			"name": "ssa-app-resource",
+			"description": "This is used to Validate SSN......."
+		}
+	],
+	"paths": {
+		"/findStateBySsn/{ssn}": {
+			"get": {
+				"tags": [
+					"getWelcomeNote"
+				],
+				"summary": "This is used to get State Name by using SSN...",
+				"operationId": "getStateBySsnUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/xml",
+					"text/html",
+					"application/json"
+				],
+				"parameters": [
+					{
+						"name": "ssn",
+						"in": "path",
+						"description": "ssn",
+						"required": true,
+						"type": "string"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"type": "string"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		}
+	}
+}
